@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Text3DMenu : MonoBehaviour {
 
+
+	public GameObject Menu1; // Menu 1
+	public GameObject Menu2; // Menu 2
+
 	public TextMesh Menu1Title; // Menu 1 Title
 	public TextMesh Menu2Title; // Menu 2 Title
 
@@ -13,6 +17,9 @@ public class Text3DMenu : MonoBehaviour {
 	public TextMesh Option2Btn; // Option 2 Btn
 	public TextMesh Option3Btn; // Option 3 Btn
 	public TextMesh Option4Btn; // Option 4 Btn
+
+	bool Menu1Active = true;
+	bool Menu2Active;
 
 	string hitObject = "none";
 
@@ -77,6 +84,33 @@ public class Text3DMenu : MonoBehaviour {
 	// Uses render.enabled to see if that menu 
 	// is enabled then changes children depending.
 	void hideMenuChildren(){
+		if(Menu1Active == true){
+			foreach (Transform child in Menu2.transform){
+				child.renderer.enabled = false;
+				child.collider.enabled = false;
+			}
+		}
+		else {
+			foreach (Transform child in Menu2.transform){
+				child.renderer.enabled = true;
+				child.collider.enabled = true;
+			}
+		}
+
+		if(Menu2Active == true){
+			foreach (Transform child in Menu1.transform){
+				child.renderer.enabled = false;
+				child.collider.enabled = false;
+			}
+		}
+		else {
+			foreach (Transform child in Menu1.transform){
+				child.renderer.enabled = true;
+				child.collider.enabled = true;
+			}
+		}
+
+		/*
 		if(Menu1Title.renderer.enabled == false){
 			Menu1Title.collider.enabled = false;
 			foreach (Transform child in Menu1Title.transform){
@@ -105,6 +139,7 @@ public class Text3DMenu : MonoBehaviour {
 				child.collider.enabled = true;
 			}
 		}
+		*/
 	}
 
 	// Clicking buttons
@@ -124,8 +159,10 @@ public class Text3DMenu : MonoBehaviour {
 		if(hit.transform.name == Menu2Btn.name){
 			Menu2Btn.fontStyle = FontStyle.Bold;
 			if(Input.GetMouseButtonDown(0)){
-				Menu1Title.renderer.enabled = false;
-				Menu2Title.renderer.enabled = true;
+				//Menu1Title.renderer.enabled = false;
+				//Menu2Title.renderer.enabled = true;
+				Menu1Active = false;
+				Menu2Active = true;
 			}
 		}
 		if(hit.transform.name == Option3Btn.name){
@@ -137,8 +174,10 @@ public class Text3DMenu : MonoBehaviour {
 		if(hit.transform.name == Menu1Btn.name){
 			Menu1Btn.fontStyle = FontStyle.Bold;
 			if(Input.GetMouseButtonDown(0)){
-				Menu1Title.renderer.enabled = true;
-				Menu2Title.renderer.enabled = false;
+				//Menu1Title.renderer.enabled = true;
+				//Menu2Title.renderer.enabled = false;
+				Menu1Active = true;
+				Menu2Active = false;
 			}
 		}
 	}
