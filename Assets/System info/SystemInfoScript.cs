@@ -3,35 +3,99 @@ using System; // system is only used on standalone.
 using System.Collections;
 
 public class SystemInfoScript : MonoBehaviour {
-
-	ScriptOne scriptOne = new ScriptOne();
-
-	// Use this for initialization
-	void Start () {
-		// scriptOne update does not run?
-		scriptOne.Steve();
-	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	string internetAccess = "";
+
+	Rect buttonsRect = new Rect(150, 0, 150, 0);
+
+	bool showGeneral;
+	bool showUser;
+	bool showUnity;
+	bool showSpecs;
+	bool showEnvironment;
+
+
+	void Update(){
+
+		// Display message for internet access
+		//NetworkReachability.NotReachable 						// No LAN or Mobile
+		//NetworkReachability.ReachableViaCarrierDataNetwork 	// Mobile network
+		//NetworkReachability.ReachableViaLocalAreaNetwork 		// LAN network
+		if(Application.internetReachability == NetworkReachability.NotReachable){
+			internetAccess = "No internet";
+		}
+		else if(Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork){
+			internetAccess = "Mobile network active";
+        }
+		else if(Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork){
+			internetAccess = "LAN active";
+        }
 	}
+
 
 	void OnGUI(){
-		GUILayout.Label("Network reachability: " + Application.internetReachability);
-		GUILayout.Label("System language: " + Application.systemLanguage);
-		GUILayout.Label("deviceName: ");
+		//GUI.Label ("System Info", buttonsRect);
+		if(GUILayout.Button("General")){
+			showGeneral = !showGeneral;
+		}
+		if(GUILayout.Button("User")){
+			showUser = !showUser;
+        }
+		if(GUILayout.Button("Unity")){
+			showUnity = !showUnity;
+        }
+		if(GUILayout.Button("Specs")){
+			showSpecs = !showSpecs;
+        }
+		if(GUILayout.Button("Environment")){
+			showEnvironment = !showEnvironment;
+        }
 
+		if(showGeneral == true){
+			GUILayout.Label("General" + 
+			                "\nLanguage: " + Application.systemLanguage +
+			                "\nNetwork: " + internetAccess);
+		}
 
-		GUILayout.Label("deviceModel: " + SystemInfo.deviceModel + 
-		                "\ndeviceName: " + SystemInfo.deviceName + 
-		                "\ndeviceType: " + SystemInfo.deviceType + 
-		                "\ngraphicsDeviceName: " + SystemInfo.graphicsDeviceName + 
-		                "\noperatingSystem: " + SystemInfo.operatingSystem + 
-		                "\nsystemMemorySize: " + SystemInfo.systemMemorySize);
+		if(showSpecs == true){
+			GUILayout.Label("Computer specs" +
+							"\nComputer name: " + SystemInfo.deviceName +
+			                "\nComputer type: " + SystemInfo.deviceType + 
+			                "\nOS: " + SystemInfo.operatingSystem + 
+			                "\nProcessor: " + SystemInfo.deviceModel + 
+			                "\nGraphics: " + SystemInfo.graphicsDeviceName + 
+			                "\nMemory: " + SystemInfo.systemMemorySize);
+		}
 		
 		if(Application.isEditor){
-			GUILayout.Label("CommandLine: " + Environment.MachineName);
-		}
-	}
+			if(showEnvironment == true){
+				GUILayout.Label("Stuffs " + 
+
+				                "\nMachineName: " + Environment.MachineName + 
+				                "\nUserDomainName: " + Environment.UserDomainName + 
+	                            "\nUserName: " + Environment.UserName + 
+				               
+				                "\nHasShutdownStarted: " + Environment.HasShutdownStarted + 
+
+				                "\nOSVersion: " + Environment.OSVersion + 
+				                "\nVersion: " + Environment.Version + 
+				                "\nProcessorCount: " + Environment.ProcessorCount + 
+				                //"\nStackTrace: " + Environment.StackTrace + 
+
+				                "\nTickCount: " + Environment.TickCount + 
+				                "\nUserInteractive: " + Environment.UserInteractive);
+			}
+			if(showUnity == true){
+				GUILayout.Label("Unity " + 
+				                "\nCommandLine: " + Environment.CommandLine + 
+				                "\nCurrentDirectory: " + Environment.CurrentDirectory);
+			}
+			if(showUser == true){
+				GUILayout.Label("User " +
+				                "\nUserName: " + Environment.UserName + 
+				                "\nMachineName: " + Environment.MachineName
+				                );
+			}
+        }
+    }
 }
