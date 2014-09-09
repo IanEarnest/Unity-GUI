@@ -4,12 +4,16 @@ using System.Collections;
 
 public class Welcome : MonoBehaviour {
 
+	public GUISkin normalGUISkin;
 	Rect menuRect = new Rect(0, 0, Screen.width, Screen.height);
-
-	
+		
 	void OnGUI(){
-		GUI.skin.label.fontSize = 20;
-		GUI.skin.button.fontSize = 20;
+		// Reset GUI skin and fontSizes
+		GUI.skin = normalGUISkin;
+		GUI.skin.button.fontSize = 0;
+		GUI.skin.box.fontSize = 0;
+		GUI.skin.label.fontSize = 0;
+
 		menuRect = GUILayout.Window(0, menuRect, menuFunction, "Main Menu");
 	}
 
@@ -23,7 +27,7 @@ public class Welcome : MonoBehaviour {
 			//Application.LoadLevel("Cameras");
 		}
 		if(GUILayout.Button("Scene 3 - GUI Resizing")){
-			Application.LoadLevel("GUIResizingTODO");
+			Application.LoadLevel("GUIResizing");
 		}
 		if(GUILayout.Button("Scene 4 - GUI Window")){
 			Application.LoadLevel("GUIWindow");
