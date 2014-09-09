@@ -4,16 +4,9 @@ using System.Collections;
 
 public class Welcome : MonoBehaviour {
 
-	public GUISkin normalGUISkin;
 	Rect menuRect = new Rect(0, 0, Screen.width, Screen.height);
 		
 	void OnGUI(){
-		// Reset GUI skin and fontSizes
-		GUI.skin = normalGUISkin;
-		GUI.skin.button.fontSize = 0;
-		GUI.skin.box.fontSize = 0;
-		GUI.skin.label.fontSize = 0;
-
 		menuRect = GUILayout.Window(0, menuRect, menuFunction, "Main Menu");
 	}
 
@@ -33,7 +26,7 @@ public class Welcome : MonoBehaviour {
 			Application.LoadLevel("GUIWindow");
 		}
 		if(GUILayout.Button("Scene 5 - OnGUI")){
-			Application.LoadLevel("GUI");
+			Application.LoadLevel("OnGUI");
 		}
 		if(GUILayout.Button("Scene 6 - Loading Levels")){
 			Application.LoadLevel("Loading Levels");
