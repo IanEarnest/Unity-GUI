@@ -17,6 +17,8 @@ public class LoadingLevelsScript : MonoBehaviour {
 	bool loaded;
 	bool loaded2;
 	bool loaded3;
+
+
 	void Update() {
 		if (Application.GetStreamProgressForLevel("Level 1") == 1)
 		if(!guiText.text.Contains("Level 1 has been fully streamed!")){
@@ -54,17 +56,9 @@ public class LoadingLevelsScript : MonoBehaviour {
 				loaded3 = true;
 			}
 		}
+	}
 
-
-
-
-
-
-
-
-
-
-
+	void OnGUI(){
 		//loading bar progress here
 		if (Application.GetStreamProgressForLevel("Level 1") == 1){
 			GUILayout.Label("Level 1 Done!");

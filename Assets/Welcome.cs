@@ -3,43 +3,43 @@ using System; // system is only used on standalone.
 using System.Collections;
 
 public class Welcome : MonoBehaviour {
-	
-	//Rect menuRect = new Rect(0, 0, 150, 0);
-	Rect menuRect = new Rect(0, 150, 550, 0); // Keeps window big for now.
-	Rect optionsRect = new Rect(150, 0, 150, 0);
-	
-	bool openOptions;
+
+	Rect menuRect = new Rect(0, 0, Screen.width, Screen.height);
+
 	
 	void OnGUI(){
-		if (GUIResizing.adjustSize) {
-			// Move to different game.
-			GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, new Vector3 (GUIResizing.X, GUIResizing.Y, GUIResizing.Z));
-		}
-		
+		GUI.skin.label.fontSize = 20;
+		GUI.skin.button.fontSize = 20;
 		menuRect = GUILayout.Window(0, menuRect, menuFunction, "Main Menu");
-		if(openOptions){
-			optionsRect = GUILayout.Window(1, optionsRect, optionsFunction, "Options");
-		}
 	}
-	
-	
-	
+
 	// Main Menu window
 	void menuFunction(int id){
-		if(GUILayout.Button("Options")){
-			openOptions = !openOptions;
+		GUILayout.Label ("Welcome, please select a scene");
+		if(GUILayout.Button("Scene 1 - Cameras")){
+			Application.LoadLevel("Cameras");
 		}
-		if(GUILayout.Button("Link (opens in current window)")){
-			Application.OpenURL("http://unity3d.com/");
+		if(GUILayout.Button("Scene 2 - GUI Designs")){
+			//Application.LoadLevel("Cameras");
 		}
-	}
-	
-	// Options window
-	void optionsFunction(int id){
-		
-		GUILayout.Label("Nothing yet.");
-		if(GUILayout.Button("Close")){
-			openOptions = false;
+		if(GUILayout.Button("Scene 3 - GUI Resizing")){
+			Application.LoadLevel("GUIResizingTODO");
 		}
+		if(GUILayout.Button("Scene 4 - GUI Window")){
+			Application.LoadLevel("GUIWindow");
+		}
+		if(GUILayout.Button("Scene 5 - OnGUI")){
+			Application.LoadLevel("GUI");
+		}
+		if(GUILayout.Button("Scene 6 - Loading Levels")){
+			Application.LoadLevel("Loading Levels");
+		}
+		if(GUILayout.Button("Scene 7 - System Info")){
+			Application.LoadLevel("SystemInfo");
+		}
+		if(GUILayout.Button("Scene 8 - Text 3D")){
+			Application.LoadLevel("Text3D");
+		}
+
 	}
 }
