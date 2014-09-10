@@ -1,42 +1,32 @@
 ﻿using UnityEngine;
-using System; // system is only used on standalone.
 using System.Collections;
 
 public class Welcome : MonoBehaviour {
 
-	Rect menuRect = new Rect(0, 0, Screen.width, Screen.height);
+	Rect welcomeRect = new Rect(0, 0, Screen.width, Screen.height);
 		
 	void OnGUI(){
-		menuRect = GUILayout.Window(0, menuRect, menuFunction, "Main Menu");
+		welcomeRect = GUILayout.Window(0, welcomeRect, welcomeFunction, "Welcome Menu");
 	}
 
 	// Main Menu window
-	void menuFunction(int id){
+	void welcomeFunction(int id){
 		GUILayout.Label ("Welcome, please select a scene");
-		if(GUILayout.Button("Scene 1 - Cameras")){
-			Application.LoadLevel("Cameras");
-		}
-		if(GUILayout.Button("Scene 2 - GUI Designs")){
-			//Application.LoadLevel("Cameras");
-		}
-		if(GUILayout.Button("Scene 3 - GUI Resizing")){
-			Application.LoadLevel("GUIResizing");
-		}
-		if(GUILayout.Button("Scene 4 - GUI Window")){
-			Application.LoadLevel("GUIWindow");
-		}
-		if(GUILayout.Button("Scene 5 - OnGUI")){
-			Application.LoadLevel("OnGUI");
-		}
-		if(GUILayout.Button("Scene 6 - Loading Levels")){
-			Application.LoadLevel("Loading Levels");
-		}
-		if(GUILayout.Button("Scene 7 - System Info")){
-			Application.LoadLevel("SystemInfo");
-		}
-		if(GUILayout.Button("Scene 8 - Text 3D")){
-			Application.LoadLevel("Text3D");
-		}
 
+		// List of levels
+		string[] levelName = {"Cameras", "GUI Designs", "GUI Resizing", 
+							  "GUI Resizing", "GUI Window", "OnGUI", 
+							  "Loading Levels", "System Info", "Text 3D"};
+		int i = 0; // Level increment
+		// Each level in the array as a button with sceneText, level number and name.
+		foreach(string text in levelName){
+			// Set scene name
+			string sceneText = "Scene " + (i+1) + " - ";
+
+			if(GUILayout.Button(sceneText + levelName[i])){
+				Application.LoadLevel(levelName[i]);
+			}
+			i++;
+		}
 	}
 }
