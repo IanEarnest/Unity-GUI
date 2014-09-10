@@ -14,9 +14,10 @@ public class Welcome : MonoBehaviour {
 		GUILayout.Label ("Welcome, please select a scene");
 
 		// List of levels
-		string[] levelName = {"Cameras", "GUI Designs", "GUI Resizing", 
-							  "GUI Resizing", "GUI Window", "OnGUI", 
-							  "Loading Levels", "System Info", "Text 3D"};
+		string[] levelName = {"Cameras", "GUI Designs", "GUI Moveable", 
+		"GUI Resizing", "GUI Resizing", "GUI Window", "OnGUI", 
+		"Loading Levels", "System Info", "Text 3D"};
+
 		int i = 0; // Level increment
 		// Each level in the array as a button with sceneText, level number and name.
 		foreach(string text in levelName){
