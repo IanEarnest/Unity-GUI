@@ -5,14 +5,19 @@ Unity Finished Resources
 Introduction
 ------------
 
-A collection of resources and scripts made in Unity, ready to be used on other projects.
+A collection of resources and scripts made in Unity, ready to be used on games and other projects.
 
 Current projects:
 
-- onGUI
-- System Info
-- Cameras
-- 3D text
+- Cameras - Mini-map camera set-up
+- GUI Designs - Assortment of GUI
+- GUI Moveable - Moveable GUI elements
+- GUI Resizing - Change font and scale of GUI
+- GUI Window - Examples using GUI Window
+- OnGUI - Uses of OnGUI and examples
+- Streaming - Level loading using streaming
+- System Info - Information about the user and their system
+- Text 3D - Uses of 3D text and examples 
 
 
 Purpose
@@ -24,15 +29,28 @@ Creating a library of scripts and scenes with use in other games.
 To-do list
 ==========
 
-&#x2611; Started resource
+&#x2611; Started resources
 
-&#9744; GUI resources
+&#x2611; Cameras
 
-&#9744; Computer & extra info
+&#9744; GUI Designs
 
-&#9744; Cameras resources
+&#9744; GUI Moveable
+- &#x2611; Moveable elements
+- &#x2611; Controls
+- &#9744; Example menus
 
-&#9744; 3D text resources
+&#9744; GUI Resizing
+
+&#9744; GUI Window
+
+&#9744; OnGUI
+
+&#9744; Streaming
+
+&#9744; System Info
+
+&#9744; Text 3D
 
 
 
