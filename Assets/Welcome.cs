@@ -15,7 +15,7 @@ public class Welcome : MonoBehaviour {
 
 		// List of levels
 		string[] levelName = {"Cameras", "GUI Designs", "GUI Moveable", 
-		"GUI Resizing", "GUI Resizing", "GUI Window", "OnGUI", 
+		"GUI Resizing", "GUI Window", "OnGUI", 
 		"Loading Levels", "System Info", "Text 3D"};
 
 		int i = 0; // Level increment

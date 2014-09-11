@@ -6,7 +6,7 @@ public class SystemInfoScript : MonoBehaviour {
 	
 	string internetAccess = "";
 
-	Rect buttonsRect = new Rect(150, 0, 150, 0);
+	Rect infoRect = new Rect(95.8f, -2.8f, 420, 440);
 
 	bool showGeneral;
 	bool showUser;
@@ -34,23 +34,25 @@ public class SystemInfoScript : MonoBehaviour {
 
 
 	void OnGUI(){
-		//GUI.Label ("System Info", buttonsRect);
 		if(GUILayout.Button("General")){
 			showGeneral = !showGeneral;
 		}
-		if(GUILayout.Button("User")){
-			showUser = !showUser;
-        }
-		if(GUILayout.Button("Unity")){
-			showUnity = !showUnity;
-        }
 		if(GUILayout.Button("Specs")){
 			showSpecs = !showSpecs;
-        }
-		if(GUILayout.Button("Environment")){
-			showEnvironment = !showEnvironment;
-        }
+		}
+		if(Application.isWebPlayer == false){
+			if(GUILayout.Button("Environment")){
+				showEnvironment = !showEnvironment;
+			}
+			if(GUILayout.Button("Unity")){
+				showUnity = !showUnity;
+			}
+			if(GUILayout.Button("User")){
+				showUser = !showUser;
+	        }
+		}
 
+		GUILayout.BeginArea (infoRect);
 		if(showGeneral == true){
 			GUILayout.Label("General" + 
 			                "\nLanguage: " + Application.systemLanguage +
@@ -67,9 +69,9 @@ public class SystemInfoScript : MonoBehaviour {
 			                "\nMemory: " + SystemInfo.systemMemorySize);
 		}
 		
-		if(Application.isEditor){
+		if(Application.isWebPlayer == false){
 			if(showEnvironment == true){
-				GUILayout.Label("Stuffs " + 
+				GUILayout.Label("Environment" + 
 
 				                "\nMachineName: " + Environment.MachineName + 
 				                "\nUserDomainName: " + Environment.UserDomainName + 
@@ -97,5 +99,6 @@ public class SystemInfoScript : MonoBehaviour {
 				                );
 			}
         }
+		GUILayout.EndArea ();
     }
 }
