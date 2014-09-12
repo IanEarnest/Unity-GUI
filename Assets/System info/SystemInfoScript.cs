@@ -44,13 +44,15 @@ public class SystemInfoScript : MonoBehaviour {
 			if(GUILayout.Button("Environment")){
 				showEnvironment = !showEnvironment;
 			}
-			if(GUILayout.Button("Unity")){
-				showUnity = !showUnity;
-			}
-			if(GUILayout.Button("User")){
-				showUser = !showUser;
-	        }
 		}
+#if !UNITY_ANDROID
+		if(GUILayout.Button("Unity")){
+			showUnity = !showUnity;
+		}
+#endif
+		if(GUILayout.Button("User")){
+			showUser = !showUser;
+        }
 
 		GUILayout.BeginArea (infoRect);
 		if(showGeneral == true){
@@ -68,8 +70,6 @@ public class SystemInfoScript : MonoBehaviour {
 			                "\nGraphics: " + SystemInfo.graphicsDeviceName + 
 			                "\nMemory: " + SystemInfo.systemMemorySize);
 		}
-		
-		if(Application.isWebPlayer == false){
 			if(showEnvironment == true){
 				GUILayout.Label("Environment" + 
 
@@ -87,6 +87,7 @@ public class SystemInfoScript : MonoBehaviour {
 				                "\nTickCount: " + Environment.TickCount + 
 				                "\nUserInteractive: " + Environment.UserInteractive);
 			}
+
 			if(showUnity == true){
 				GUILayout.Label("Unity " + 
 				                "\nCommandLine: " + Environment.CommandLine + 
@@ -98,7 +99,6 @@ public class SystemInfoScript : MonoBehaviour {
 				                "\nMachineName: " + Environment.MachineName
 				                );
 			}
-        }
 		GUILayout.EndArea ();
     }
 }
