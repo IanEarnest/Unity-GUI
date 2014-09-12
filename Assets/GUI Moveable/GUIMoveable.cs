@@ -44,9 +44,10 @@ public class GUIMoveable : MonoBehaviour {
 			}
 		}
 		else {
-			window1Rect = GUILayout.Window(0, window1Rect, window1Function, "Move 1");
-			window2Rect = GUILayout.Window(1, window2Rect, window2Function, "Move 2");
-			window3Rect = GUILayout.Window(2, window3Rect, window3Function, "Move 3");
+			// GUILayout.Window(0 - is used for Welcome menu
+			window1Rect = GUILayout.Window(1, window1Rect, window1Function, "Move 1");
+			window2Rect = GUILayout.Window(2, window2Rect, window2Function, "Move 2");
+			window3Rect = GUILayout.Window(3, window3Rect, window3Function, "Move 3");
 			if(GUI.Button(buttons2Rect, "Make unmoveable")){
 				isMoveable = false;
 				isMoveable2 = false;
@@ -75,9 +76,9 @@ public class GUIMoveable : MonoBehaviour {
 			}
 		}
 		else {
-			window1Rect = GUILayout.Window(0, window1Rect, window1Function, "Stick 1");
-			window2Rect = GUILayout.Window(1, window2Rect, window2Function, "Stick 2");
-			window3Rect = GUILayout.Window(2, window3Rect, window3Function, "Stick 3");
+			window1Rect = GUILayout.Window(1, window1Rect, window1Function, "Stick 1");
+			window2Rect = GUILayout.Window(2, window2Rect, window2Function, "Stick 2");
+			window3Rect = GUILayout.Window(3, window3Rect, window3Function, "Stick 3");
 			guiButton1GroupRect.x = window1Rect.x;
 			guiButton1GroupRect.y = window1Rect.y;
 			//guiButton2Rect.x = window1Rect.x;
