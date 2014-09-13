@@ -16,9 +16,9 @@ public class GUIWindow : MonoBehaviour {
 			GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, new Vector3 (GUIResizing.X, GUIResizing.Y, GUIResizing.Z));
 		}
 		
-		menuRect = GUILayout.Window(0, menuRect, menuFunction, "Main Menu");
+		menuRect = GUILayout.Window(1, menuRect, menuFunction, "Main Menu");
 		if(openOptions){
-			optionsRect = GUILayout.Window(1, optionsRect, optionsFunction, "Options");
+			optionsRect = GUILayout.Window(2, optionsRect, optionsFunction, "Options");
 		}
 	}
 	
