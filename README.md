@@ -15,7 +15,7 @@ Current projects:
 - GUI Resizing - Change font and scale of GUI
 - GUI Window - Examples using GUI Window
 - OnGUI - Uses of OnGUI and examples
-- Streaming - Level loading using streaming
+- Loading Levels - Level loading using streaming
 - System Info - Information about the user and their system
 - Text 3D - Uses of 3D text and examples 
 
@@ -46,11 +46,11 @@ To-do list
 
 &#9744; OnGUI
 
-&#9744; Streaming
+&#9744; Loading Levels
 
-&#9744; System Info
+&#x2611; System Info
 
-&#9744; Text 3D
+&#x2611; Text 3D
 
 
 
