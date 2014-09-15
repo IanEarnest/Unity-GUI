@@ -6,7 +6,7 @@ public class SystemInfoScript : MonoBehaviour {
 	
 	string internetAccess = "";
 
-	Rect infoRect = new Rect(95.8f, -2.8f, 420, 440);
+	Rect infoRect = new Rect(95.8f, -2.8f, 420, 10000);
 
 	bool showGeneral;
 	bool showUser;
