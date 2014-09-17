@@ -34,7 +34,10 @@ To-do list
 &#x2611; Cameras
 
 &#9744; GUI Designs
-
+- &#9744; GUI1
+- &#9744; GUI2
+- &#9744; GUI3
+ 
 &#9744; GUI Moveable
 - &#x2611; Moveable elements
 - &#x2611; Controls
