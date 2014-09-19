@@ -9,8 +9,6 @@ public class Text3DChange : MonoBehaviour {
 	Text3DFind ScriptFindText;
 	TextMesh textToChange1;
 	TextMesh textToChange2;
-	bool changeText1Active;
-	bool changeText2Active;
 
 	public TextMesh clearBtn;
 	Text3DClear ScriptClearText;
@@ -28,46 +26,62 @@ public class Text3DChange : MonoBehaviour {
 		textToChange2 = ScriptFindText.findMesh(textToChange2, "Text Change 2");
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		change1Btn.fontStyle = FontStyle.Normal;
-		change2Btn.fontStyle = FontStyle.Normal;
-		clearBtn.fontStyle = FontStyle.Normal;
+		normalFontStyles ();
 
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if(Physics.Raycast(ray, out hit)){
-			if(hit.transform.name == change1Btn.name){
-				change1Btn.fontStyle = FontStyle.Bold;
-				if(Input.GetMouseButtonDown(0)){
-					changeText1Active = true;
-				}
-			}
-			if(hit.transform.name == change2Btn.name){
-				change2Btn.fontStyle = FontStyle.Bold;
-				if(Input.GetMouseButtonDown(0)){
-					changeText2Active = true;
-				}
-			}
-			if(hit.transform.name == clearBtn.name){
-				clearBtn.fontStyle = FontStyle.Bold;
-				if(Input.GetMouseButtonDown(0)){
-					if(textToClear1){
-						ScriptClearText.clearText (textToClear1);
-					}
-					else{
-						ScriptClearText.clearText (textToClear2);
-					}
-				}
+			changeTexts();
+			clearTexts();
+		}
+	}
+
+	void normalFontStyles () {
+		change1Btn.fontStyle = FontStyle.Normal;
+		change2Btn.fontStyle = FontStyle.Normal;
+		clearBtn.fontStyle = FontStyle.Normal;
+	}
+
+
+	/// <summary>
+	/// Mouse hover makes text bold.
+	/// Mouse click returns true.
+	/// </summary>
+	/// <returns><c>true</c>, if text was hit, <c>false</c> otherwise.</returns>
+	/// <param name="text">Text.</param>
+	bool hitText (TextMesh text) {
+		bool click = false;
+		
+		if(hit.transform.name == text.name){
+			text.fontStyle = FontStyle.Bold;
+			if(Input.GetMouseButtonDown(0)){
+				click = true;
 			}
 		}
+		return click;
+	}
 
 
-		if(changeText1Active == true){
+	void changeTexts(){
+		if(hitText(change1Btn)){
 			textToChange1.text = "Changed 1";
 		}
-		if(changeText2Active == true){
+		
+		if(hitText(change2Btn)){
 			textToChange2.text = "Changed 2";
+		}
+	}
+
+	void clearTexts(){
+		if(hitText(clearBtn)){
+			if(textToClear1){
+				ScriptClearText.clearText (textToClear1);
+			}
+			else{
+				ScriptClearText.clearText (textToClear2);
+			}
 		}
 	}
 }
