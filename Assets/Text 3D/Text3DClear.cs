@@ -11,9 +11,11 @@ public class Text3DClear : MonoBehaviour {
 		myTime += 0.024f;
 
 		if (isClearText == true) {
-			myText.renderer.material.color = Color.Lerp(Color.white, Color.clear, myTime/5);
-			if(myText.renderer.material.color == Color.clear) {
-				DestroyImmediate(myText.gameObject);
+			if(myText != null){
+				myText.renderer.material.color = Color.Lerp(Color.white, Color.clear, myTime/5);
+				if(myText.renderer.material.color == Color.clear) {
+					DestroyImmediate(myText.gameObject);
+				}
 			}
 		}
 	}
