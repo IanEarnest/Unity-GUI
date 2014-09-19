@@ -6,23 +6,24 @@ public class Text3DChange : MonoBehaviour {
 	
 	public TextMesh change1Btn;
 	public TextMesh change2Btn;
-	Text3DFind ScriptFindText = new Text3DFind();
+	Text3DFind ScriptFindText;
 	TextMesh textToChange1;
 	TextMesh textToChange2;
 	bool changeText1Active;
 	bool changeText2Active;
 
 	public TextMesh clearBtn;
-	Text3DClear ScriptClearText = new Text3DClear();
+	Text3DClear ScriptClearText;
 	public TextMesh textToClear1;
 	public TextMesh textToClear2;
-	bool clearTextActive;
 
 	Ray ray;
 	RaycastHit hit;
 
 	// Use this for initialization
 	void Start () {
+		ScriptClearText = clearBtn.gameObject.AddComponent <Text3DClear>();
+		ScriptFindText = clearBtn.gameObject.AddComponent <Text3DFind>();
 		textToChange1 = ScriptFindText.findMesh(textToChange1, "Text Change 1");
 		textToChange2 = ScriptFindText.findMesh(textToChange2, "Text Change 2");
 
@@ -51,7 +52,12 @@ public class Text3DChange : MonoBehaviour {
 			if(hit.transform.name == clearBtn.name){
 				clearBtn.fontStyle = FontStyle.Bold;
 				if(Input.GetMouseButtonDown(0)){
-					clearTextActive = true;
+					if(textToClear1){
+						ScriptClearText.clearText (textToClear1);
+					}
+					else{
+						ScriptClearText.clearText (textToClear2);
+					}
 				}
 			}
 		}
@@ -63,10 +69,5 @@ public class Text3DChange : MonoBehaviour {
 		if(changeText2Active == true){
 			textToChange2.text = "Changed 2";
 		}
-		if(clearTextActive == true){
-			ScriptClearText.clearText (textToClear1);
-		}
-
-		ScriptClearText.clearText (textToClear2);
 	}
 }
