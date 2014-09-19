@@ -8,7 +8,10 @@ public class GUIResizing : MonoBehaviour {
 	string instructions = "No instructions";
 	Rect helpRect = new Rect(Screen.width - 80, 0, 80, 25);
 	Rect adjustRect = new Rect(Screen.width - 80, 25, 80, 25);
-	
+
+
+	Rect menuRect = new Rect(0, 150, 550, 0);
+
 	int scrollLimit = 2000; // Max scroll limit.
 	int scrolled = 0; // Count for scroll
 	
@@ -69,16 +72,8 @@ public class GUIResizing : MonoBehaviour {
 			
 			if(Application.loadedLevelName == "Lobby"){
 				instructions = "Press \"Host a game\" to start your own game, " +
-					"\npress \"Refresh Hsots\" to list any other people hosting a game." +
+					"\npress \"Refresh Hosts\" to list any other people hosting a game." +
 						"\nWhen connected to a server press level buttons to load a level.";
-			}
-			if(Application.loadedLevelName == "Level 1-1"){
-				instructions = "WASD to move, push the blocks into areas to fill or " +
-					"\nempty and push into each other to transfer values.";
-			}
-			if(Application.loadedLevelName == "Level 2-1" || Application.loadedLevelName == "Level 2-2"){
-				instructions = "Click on text to fill, empty and move the volumes " +
-					"\nbetween the containers.";
 			}
 			GUI.Box(new Rect(0, 0, Screen.width, Screen.height), instructions);
 		}
@@ -89,6 +84,19 @@ public class GUIResizing : MonoBehaviour {
 			if(GUI.Button(adjustRect, "Adjust Size")){
 				adjustSize = !adjustSize;
 			}
+		}
+
+
+		menuRect = GUILayout.Window(1, menuRect, menuFunction, "Main Menu");
+	}
+
+	// Main Menu window
+	void menuFunction(int id){
+		if(GUILayout.Button("Play")){
+			print ("Play");
+		}
+		if(GUILayout.Button("Options")){
+			print ("Options");
 		}
 	}
 }
