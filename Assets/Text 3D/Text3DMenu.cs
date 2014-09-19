@@ -68,14 +68,14 @@ public class Text3DMenu : MonoBehaviour {
 
 		if(hitObject != hit.transform.name && 
 		   hit.transform.name != "Background"){
-			print (hit.transform.name + " hover");
+			//print (hit.transform.name + " hover");
 		}
 		hitObject = hit.transform.name;
 		
 
 		if(Input.GetMouseButtonDown(0) && 
 		   hit.transform.name != "Background"){
-			print(hitObject + " pressed");
+			//print(hitObject + " pressed");
 		}
 	}
 
