@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewGUI1 : MonoBehaviour {
+public class GUIMenu1 : MonoBehaviour {
 
 	public bool isPlayerWinner;
 	public TextMesh winnerText;

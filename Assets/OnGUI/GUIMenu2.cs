@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewGUI2 : MonoBehaviour {
+public class GUIMenu2 : MonoBehaviour {
 	
 	public static int scoreToWin = 5;
 	public static string difficulty = "Medium";
@@ -19,11 +19,13 @@ public class NewGUI2 : MonoBehaviour {
 	private bool mainMenu = true;
 	private bool optionsMenu, aboutMenu;
 	private bool waitNext;
-	
+
+	Rect menuRect = new Rect (125, 250, 400, 500);
+
 	void OnGUI(){
 		// Centered main menu group grid.
 		if(mainMenu == true){
-			GUI.BeginGroup (new Rect (0, 400, 400, 500));
+			GUI.BeginGroup (menuRect);
 			GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
 			GUI.Box (new Rect (0,0,100,30), new GUIContent ("Main Menu", "Title."));
 			selectedMain = GUI.SelectionGrid (new Rect (0,25, 100, 120), selectedMain, stringsMain, 1);
@@ -31,7 +33,7 @@ public class NewGUI2 : MonoBehaviour {
 		}
 		// Options menu.
 		if(optionsMenu == true){
-			GUI.BeginGroup (new Rect (Screen.width / 2 - -60, Screen.height / 2 - 100, 400, 500));
+			GUI.BeginGroup (menuRect);
 			GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
 			GUI.Box (new Rect (0,0,100,30), "Options Menu");
 			selectedOptions = GUI.SelectionGrid (new Rect (0,25, 100, 120), selectedOptions, stringsOptions, 1);
@@ -42,7 +44,7 @@ public class NewGUI2 : MonoBehaviour {
 		
 		// About menu.
 		if(aboutMenu == true){
-			GUI.BeginGroup (new Rect (Screen.width / 2 - -60, Screen.height / 2 - 100, 400, 500));
+			GUI.BeginGroup (menuRect);
 			GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
 			GUI.Box (new Rect (0,0,100,30), "About Menu");
 			GUI.TextArea (new Rect (0,30,100,75), credits);
