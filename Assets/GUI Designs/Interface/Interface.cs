@@ -4,11 +4,9 @@ using System.Collections;
 public class Interface : MonoBehaviour {
 
 	Rect mainMenuRect = new Rect(Screen.width/2-75, Screen.height/2-100, 150, 50);
-
-	Rect healthRect = new Rect(0, 0, 40, 50);
+	
 	Rect minimapRect = new Rect(Screen.width-150, 0, 150, 150);
 	Rect weaponsRect = new Rect(0, Screen.height-115, 150, 200);
-	Rect weaponImageRect = new Rect(0, Screen.height-60, 150, 65);
 	Rect afkRect = new Rect(Screen.width/2-200, Screen.height-20, 400, 20);
 	public Texture health, food, armour, map, weapon;
 

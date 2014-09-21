@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GUIDesigns : MonoBehaviour {
 
-	public static int guiSelect = 0;
+	public static int guiSelect = 1;
 	Rect guiRect = new Rect(Screen.width-80, Screen.height/2-75, 80, 150);
 	//backRect = new Rect(Screen.width-80, Screen.height-100, 80, 30);
 
@@ -15,9 +15,6 @@ public class GUIDesigns : MonoBehaviour {
 		//if(guiSelect == 0){
 		GUILayout.BeginArea (guiRect);
 			GUILayout.Label ("GUI Select");
-			if(GUILayout.Button("None")){
-				guiSelect = 0;
-			}
 			if(GUILayout.Button("Interface")){
 				guiSelect = 1;
 			}
