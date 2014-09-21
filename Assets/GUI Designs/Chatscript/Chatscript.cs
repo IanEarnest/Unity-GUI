@@ -21,8 +21,8 @@ public class Chatscript : MonoBehaviour {
 
 	// Window 1
 	void chatFunction(int id){
-		scrollPos = GUILayout.BeginScrollView (scrollPos, false, true, GUILayout.Width(780), GUILayout.Height(135));
-			GUILayout.Box (chat);
+		scrollPos = GUILayout.BeginScrollView (scrollPos, GUILayout.Width(780), GUILayout.Height(135));
+			GUILayout.Label (chat);
 		GUILayout.EndScrollView ();
 		GUILayout.Space (10);
 
