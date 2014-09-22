@@ -19,10 +19,10 @@ public class Back : MonoBehaviour {
 
 
 	void OnGUI(){
-		if(GUI.Button(backRect, "Back")){
+		if(GUI.Button(backRect, "Exit level")){
 			Application.LoadLevel("Welcome");
 		}
-		if(GUI.Button(backRect2, "Levels")){
+		if(GUI.Button(backRect2, "Show menu")){
 			isActive = !isActive;
 			welcomeScript.SetActive (isActive);
 		}
