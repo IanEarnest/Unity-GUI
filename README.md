@@ -31,7 +31,16 @@ To-do list
 
 &#x2611; Started resources
 
-&#x2611; Cameras
+&#9744; "level name" menu for each level
+
+&#9744; Welcome
+- &#9744; Overlay "IN PROGRESS"
+- &#9744; Maximise level image
+
+&#9744; Cameras
+- &#x2611; Minimap
+- &#9744; 1st person
+- &#9744; 3rd person
 
 &#x2611; GUI Designs
 - &#x2611; GUI1
@@ -44,17 +53,30 @@ To-do list
 - &#9744; Example menus
 
 &#9744; GUI Resizing
+- &#9744; Example menus
+- &#9744; Adjust size
 
 &#9744; GUI Window
+- &#9744; Example menus
 
 &#9744; OnGUI
+- &#9744; Example menus
+- &#9744; GUI menus
+- &#9744; GUILayout menus
 
 &#9744; Loading Levels
 
 &#x2611; System Info
+- &#x2611; General
+- &#x2611; Specs
+- &#x2611; Environment
+- &#x2611; Unity
+- &#x2611; User
 
 &#x2611; Text 3D
-
+- &#x2611; Example menu
+- &#x2611; Change text
+- &#x2611; Clear text
 
 
 Map
