@@ -59,6 +59,7 @@ public class LoadingLevelsScript : MonoBehaviour {
 	}
 
 	void OnGUI(){
+		GUILayout.BeginArea (new Rect (0, 150, 100, 300));
 		//loading bar progress here
 		if (Application.GetStreamProgressForLevel("Level 1") == 1){
 			GUILayout.Label("Level 1 Done!");
@@ -111,5 +112,6 @@ public class LoadingLevelsScript : MonoBehaviour {
 				Application.LoadLevel("Level 3");
 			}
 		}
+		GUILayout.EndArea ();
 	}
 }
