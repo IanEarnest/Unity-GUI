@@ -1,11 +1,11 @@
-Unity Finished Resources
+Unity GUI
 ====
 
 
 Introduction
 ------------
 
-A collection of resources and scripts made in Unity, ready to be used on games and other projects.
+A collection of GUI resources and scripts made in Unity, ready to be used on games and other projects.
 
 Current projects:
 
@@ -33,10 +33,10 @@ To-do list
 
 &#x2611; Cameras
 
-&#9744; GUI Designs
-- &#9744; GUI1
-- &#9744; GUI2
-- &#9744; GUI3
+&#x2611; GUI Designs
+- &#x2611; GUI1
+- &#x2611; GUI2
+- &#x2611; GUI3
  
 &#9744; GUI Moveable
 - &#x2611; Moveable elements
