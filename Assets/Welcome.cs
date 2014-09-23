@@ -4,6 +4,7 @@ using System.Collections;
 public class Welcome : MonoBehaviour {
 
 	Rect welcomeRect = new Rect(0, 0, Screen.width, Screen.height);
+	Rect[] rectArray = new Rect[9];
 	Images ScriptImages;
 
 	void Start(){
@@ -44,8 +45,11 @@ public class Welcome : MonoBehaviour {
 
 				if(GUILayout.Button(new GUIContent(/*sceneText + */levelName[i], ScriptImages.images[i]), 
 			                    				   GUILayout.Width(300), GUILayout.Height(100))){
-					Application.LoadLevel(levelName[i]);
+					Application.LoadLevel(levelName[i]);	
 				}
+				// Get rect for each GUILayout
+				rectArray[i] = GUILayoutUtility.GetLastRect();
+				
 				i++;
 
 			if(i == 3 || i == 6 || i == 9){
@@ -55,5 +59,15 @@ public class Welcome : MonoBehaviour {
 		}
 
 		GUILayout.Label ("GUI Resizing, GUI Window and Loading Levels are in progress");
+
+		// Hover over buttons
+		i = 0;
+		for(; i<rectArray.Length; i++){
+			if(rectArray[i].Contains(Event.current.mousePosition)){
+				GUI.Label(new Rect(150,100,600,600)/*rectArray[i]*/, ScriptImages.images[i]);
+				GUI.Box(new Rect(150,100, 600, 30), levelName[i]);
+				
+			}
+		}
 	}
 }
