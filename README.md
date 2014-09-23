@@ -33,9 +33,9 @@ To-do list
 
 &#9744; "level name" menu for each level
 
-&#9744; Welcome
-- &#9744; Overlay "IN PROGRESS"
-- &#9744; Maximise level image
+&x2611; Welcome
+- &x2611; Overlay "IN PROGRESS"
+- &x2611; Maximise level image
 
 &#9744; Cameras
 - &#x2611; Minimap
