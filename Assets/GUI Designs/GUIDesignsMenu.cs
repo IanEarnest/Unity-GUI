@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIDesigns : MonoBehaviour {
+public class GUIDesignsMenu : MonoBehaviour {
 
 	public static int guiSelect = 1;
 	Rect guiRect = new Rect(Screen.width-80, Screen.height/2-75, 80, 150);

@@ -14,7 +14,7 @@ public class Lobby2 : MonoBehaviour {
 	void OnGUI(){
 
 		// GUI selection
-		if (GUIDesigns.guiSelect == 4) {
+		if (GUIDesignsMenu.guiSelect == 4) {
 			if(GUI.Button(backRect, "Back to menu")){
 
 			}

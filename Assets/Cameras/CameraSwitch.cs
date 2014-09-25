@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraSwitch : MonoBehaviour {
 
-	int activeCamera = 1;
+	public static int activeCamera = 1;
 	public Camera firstPersonCamera;
 	public Camera thirdPersonCamera;
 	public Transform sphere;

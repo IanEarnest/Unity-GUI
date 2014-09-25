@@ -11,7 +11,7 @@ public class Interface : MonoBehaviour {
 	public Texture health, food, armour, map, weapon;
 
 	void OnGUI(){
-		if (GUIDesigns.guiSelect == 1) {
+		if (GUIDesignsMenu.guiSelect == 1) {
 			mainMenuRect = GUILayout.Window(1, mainMenuRect, mainMenuWindow, "MAIN MENU");
 
 			GUILayout.BeginHorizontal();

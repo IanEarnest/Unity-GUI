@@ -17,7 +17,7 @@ public class Lobby1 : MonoBehaviour {
 	void OnGUI(){
 		
 		// GUI selection
-		if (GUIDesigns.guiSelect == 3) {
+		if (GUIDesignsMenu.guiSelect == 3) {
 
 			GUI.Label(titleRect, crashDrive);
 			if(GUI.Button(backRect, "Back to main menu")){

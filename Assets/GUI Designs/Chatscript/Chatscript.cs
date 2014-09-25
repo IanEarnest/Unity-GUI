@@ -12,7 +12,7 @@ public class Chatscript : MonoBehaviour {
 
 
 		//window1Rect.y = Screen.height - window1Rect.height;
-		if (GUIDesigns.guiSelect == 2) {
+		if (GUIDesignsMenu.guiSelect == 2) {
 			chatWindow = GUILayout.Window(1, chatWindow, chatFunction, "");
 		}
 	}
