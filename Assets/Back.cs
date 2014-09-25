@@ -4,8 +4,7 @@ using System.Collections;
 
 public class Back : MonoBehaviour {
 
-	Rect backRect = new Rect(Screen.width-70, Screen.height-30, 70, 30);
-	Rect backRect2 = new Rect(Screen.width-70, Screen.height-60, 70, 30);
+	Rect backRect = new Rect(Screen.width-80, Screen.height-50, 80, 50);
 
 	public GameObject welcomeScript;
 	static bool isActive;
@@ -19,12 +18,22 @@ public class Back : MonoBehaviour {
 
 
 	void OnGUI(){
-		if(GUI.Button(backRect, "Exit level")){
-			Application.LoadLevel("Welcome");
+		string menuText = "";
+		if (!isActive) {
+			menuText = "Show Menu";
 		}
-		if(GUI.Button(backRect2, "Show menu")){
-			isActive = !isActive;
-			welcomeScript.SetActive (isActive);
+		if (isActive) {
+			menuText = "Hide Menu";
 		}
+
+		GUI.BeginGroup (backRect);
+			if(GUILayout.Button("Exit level")){
+				Application.LoadLevel("Welcome");
+			}
+			if(GUILayout.Button(menuText)){
+				isActive = !isActive;
+				welcomeScript.SetActive (isActive);
+			}
+		GUI.EndGroup ();
 	}
 }
