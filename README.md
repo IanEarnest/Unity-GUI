@@ -9,7 +9,7 @@ A collection of GUI resources and scripts made in Unity, ready to be used on gam
 
 Current projects:
 
-- Cameras - Mini-map camera set-up
+- Cameras - Assortment of camera set-ups
 - GUI Designs - Assortment of GUI
 - GUI Moveable - Moveable GUI elements
 - GUI Resizing - Change font and scale of GUI
@@ -37,10 +37,10 @@ To-do list
 - &#x2611; Overlay "IN PROGRESS"
 - &#x2611; Maximise level image
 
-&#9744; Cameras
+&#x2611; Cameras
 - &#x2611; Minimap
-- &#9744; 1st person
-- &#9744; 3rd person
+- &#x2611; 1st person
+- &#x2611; 3rd person
 
 &#x2611; GUI Designs
 - &#x2611; GUI1
