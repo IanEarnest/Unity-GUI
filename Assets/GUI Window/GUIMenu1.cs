@@ -9,18 +9,20 @@ public class GUIMenu1 : MonoBehaviour {
 	Rect menuRect = new Rect(0, 250, 120, 146);
 	
 	void OnGUI(){
-		GUI.Box(menuRect, "Game Over Menu");
-		GUILayout.BeginArea(menuRect);
-			GUILayout.Space (25f);
-			if(GUILayout.Button("Main Menu")){
-				print("Main Menu pressed");
-			}
-			if(GUILayout.Button("Replay")){
-				print("Replay pressed");
-			}
-			if(GUILayout.Button("Scores")){
-				print("Scores pressed");
-			}
-		GUILayout.EndArea();
+		if(GUIWindowMenu.showWindow == 1){
+			GUI.Box(menuRect, "Game Over Menu");
+			GUILayout.BeginArea(menuRect);
+				GUILayout.Space (25f);
+				if(GUILayout.Button("Main Menu")){
+					print("Main Menu pressed");
+				}
+				if(GUILayout.Button("Replay")){
+					print("Replay pressed");
+				}
+				if(GUILayout.Button("Scores")){
+					print("Scores pressed");
+				}
+			GUILayout.EndArea();
+		}
 	}
 }

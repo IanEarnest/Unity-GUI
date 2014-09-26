@@ -9,13 +9,13 @@ public class LoadingLevelsMenu : MonoBehaviour {
 		GUILayout.BeginArea (guiRect);
 			GUILayout.Label ("Level Select");
 			if(GUILayout.Button("Level 1")){
-				
+				Application.LoadLevel("Level 1");
 			}
 			if(GUILayout.Button("Level 2")){
-				
+				Application.LoadLevel("Level 2");
 			}
 			if(GUILayout.Button("Level 3")){
-				
+				Application.LoadLevel("Level 3");
 			}
 		GUILayout.EndArea ();
 	}

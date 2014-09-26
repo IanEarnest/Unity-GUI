@@ -23,33 +23,35 @@ public class GUIMenu2 : MonoBehaviour {
 	Rect menuRect = new Rect (125, 250, 400, 500);
 
 	void OnGUI(){
-		// Centered main menu group grid.
-		if(mainMenu == true){
-			GUI.BeginGroup (menuRect);
-			GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
-			GUI.Box (new Rect (0,0,100,30), new GUIContent ("Main Menu", "Title."));
-			selectedMain = GUI.SelectionGrid (new Rect (0,25, 100, 120), selectedMain, stringsMain, 1);
-			GUI.EndGroup();
-		}
-		// Options menu.
-		if(optionsMenu == true){
-			GUI.BeginGroup (menuRect);
-			GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
-			GUI.Box (new Rect (0,0,100,30), "Options Menu");
-			selectedOptions = GUI.SelectionGrid (new Rect (0,25, 100, 120), selectedOptions, stringsOptions, 1);
-			GUI.TextField (new Rect (25,49,52,18), difficulty);
-			GUI.TextField (new Rect (40,91,20,18), "" + scoreToWin);
-			GUI.EndGroup();
-		}
-		
-		// About menu.
-		if(aboutMenu == true){
-			GUI.BeginGroup (menuRect);
-			GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
-			GUI.Box (new Rect (0,0,100,30), "About Menu");
-			GUI.TextArea (new Rect (0,30,100,75), credits);
-			selectedAbout = GUI.SelectionGrid (new Rect (0,105, 100, 40), 0, stringsAbout, 1);
-			GUI.EndGroup();
+		if(GUIWindowMenu.showWindow == 2){
+			// Centered main menu group grid.
+			if(mainMenu == true){
+				GUI.BeginGroup (menuRect);
+				GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
+				GUI.Box (new Rect (0,0,100,30), new GUIContent ("Main Menu", "Title."));
+				selectedMain = GUI.SelectionGrid (new Rect (0,25, 100, 120), selectedMain, stringsMain, 1);
+				GUI.EndGroup();
+			}
+			// Options menu.
+			if(optionsMenu == true){
+				GUI.BeginGroup (menuRect);
+				GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
+				GUI.Box (new Rect (0,0,100,30), "Options Menu");
+				selectedOptions = GUI.SelectionGrid (new Rect (0,25, 100, 120), selectedOptions, stringsOptions, 1);
+				GUI.TextField (new Rect (25,49,52,18), difficulty);
+				GUI.TextField (new Rect (40,91,20,18), "" + scoreToWin);
+				GUI.EndGroup();
+			}
+			
+			// About menu.
+			if(aboutMenu == true){
+				GUI.BeginGroup (menuRect);
+				GUI.Box (new Rect (0,0,100,150), new GUIContent ("", "Menu."));
+				GUI.Box (new Rect (0,0,100,30), "About Menu");
+				GUI.TextArea (new Rect (0,30,100,75), credits);
+				selectedAbout = GUI.SelectionGrid (new Rect (0,105, 100, 40), 0, stringsAbout, 1);
+				GUI.EndGroup();
+			}
 		}
 	}
 	
