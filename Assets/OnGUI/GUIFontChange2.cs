@@ -11,16 +11,18 @@ public class GUIFontChange2 : MonoBehaviour {
 	public GUISkin myGUISkin;
 
 	void OnGUI () {
-		myGUISkin.button.fontSize = buttonFontSize;
-		myGUISkin.box.fontSize = boxFontSize;
-		myGUISkin.label.fontSize = labelFontSize;
-		GUI.skin = myGUISkin;
+		if(OnGUIMenu.menuSelect == 2){
+			myGUISkin.button.fontSize = buttonFontSize;
+			myGUISkin.box.fontSize = boxFontSize;
+			myGUISkin.label.fontSize = labelFontSize;
+			GUI.skin = myGUISkin;
 
 
-		if(GUI.Button(new Rect(125,100,120,50),"Button")){
-			print("hi");
+			if(GUI.Button(new Rect(0,0,120,50),"Button")){
+				print("hi");
+			}
+			GUI.Box(new Rect(0,50,120,50),"Box");
+			GUI.Label(new Rect(0,100,120,50),"Label");
 		}
-		GUI.Box(new Rect(125,150,120,50),"Box");
-		GUI.Label(new Rect(125,200,120,50),"Label");
 	}
 }
