@@ -8,6 +8,9 @@ public class LoadingLevelsMenu : MonoBehaviour {
 	void OnGUI(){
 		GUILayout.BeginArea (guiRect);
 			GUILayout.Label ("Level Select");
+			if(GUILayout.Button("Levels Menu")){
+				Application.LoadLevel("Loading Levels");
+			}
 			if(GUILayout.Button("Level 1")){
 				Application.LoadLevel("Level 1");
 			}
