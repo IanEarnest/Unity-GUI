@@ -31,7 +31,7 @@ To-do list
 
 &#x2611; Started resources
 
-&#9744; "level name" menu for each level
+&#x2611; "level name" menu for each level
 
 &#x2611; Welcome
 - &#x2611; Overlay "IN PROGRESS"
