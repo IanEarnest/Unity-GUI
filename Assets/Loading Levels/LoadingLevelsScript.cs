@@ -2,116 +2,69 @@
 using System.Collections;
 
 public class LoadingLevelsScript : MonoBehaviour {
+	
+	/*
+    Edit - Project Settings - Player, Streaming - First Streamed Level = 1
+     */
 
-	public float Level1Percentage = 0;
-	public float Level2Percentage = 0;
-	public float Level3Percentage = 0;
-	public float newLevel1Percentage = 0;
-	public float newLevel2Percentage = 0;
-	public float newLevel3Percentage = 0;
+	string level1Name = "Level 1";
+	string level1Load = "";
+	bool canLevel1Load = false;
+	float level1LoadPercentage = 0;
 
-	// Test of loading
-	public float percentageLoaded = 0;
-	public float percentageLoaded2 = 0;
-	public float percentageLoaded3 = 0;
-	bool loaded;
-	bool loaded2;
-	bool loaded3;
+	string level2Name = "Level 2";
+	string level2Load = "";
+	bool canLevel2Load = false;
+	float level2LoadPercentage = 0;
 
-
-	void Update() {
-		if (Application.GetStreamProgressForLevel("Level 1") == 1)
-		if(!guiText.text.Contains("Level 1 has been fully streamed!")){
-			guiText.text += "Level 1 has been fully streamed!";
-		}
-		else {
-			if(!loaded){
-				percentageLoaded = Application.GetStreamProgressForLevel("Level 1") * 100;
-				guiText.text += " " + percentageLoaded.ToString();
-				//Resources.Load("20mb image");
-				loaded = true;
-			}
+	string level3Name = "Level 3";
+	string level3Load = "";
+	bool canLevel3Load = false;
+	float level3LoadPercentage = 0;
+	
+	void Update () {
+		// Stream progress level 1
+		if(Application.GetStreamProgressForLevel(level1Name) == 1) {
+			level1Load = level1Name + " loaded.";
+		} else {
+			level1LoadPercentage = Application.GetStreamProgressForLevel(level1Name) * 100;
+			level1Load = level1Name + " loading... " + level1LoadPercentage.ToString();
 		}
 		
-		if (Application.GetStreamProgressForLevel("Level 2") == 1)
-		if(!guiText.text.Contains("Level 2 has been fully streamed!")){
-			guiText.text += "\nLevel 2 has been fully streamed!";
-		}
-		else {
-			if(!loaded2){
-				percentageLoaded = Application.GetStreamProgressForLevel("Level 2") * 100;
-				guiText.text += " " + percentageLoaded.ToString();
-				loaded2 = true;
-			}
+		// Stream progress level 2
+		if(Application.GetStreamProgressForLevel(level2Name) == 1) {
+			level2Load = level2Name + " loaded.";
+		} else {
+			level2LoadPercentage = Application.GetStreamProgressForLevel(level2Name) * 100;
+			level2Load = level2Name + " loading... " + level2LoadPercentage.ToString();
 		}
 		
-		if (Application.GetStreamProgressForLevel("Level 3") == 1)
-		if(!guiText.text.Contains("Level 3 has been fully streamed!")){
-			guiText.text += "\nLevel 3 has been fully streamed!";
+		// Stream progress level 3
+		if(Application.GetStreamProgressForLevel(level3Name) == 1) {
+			level3Load = level3Name + " loaded.";
+		} else {
+			level3LoadPercentage = Application.GetStreamProgressForLevel(level3Name) * 100;
+			level3Load = level3Name + " loading... " + level3LoadPercentage.ToString();
 		}
-		else {
-			if(!loaded3){
-				percentageLoaded = Application.GetStreamProgressForLevel("Level 3") * 100;
-				guiText.text += " " + percentageLoaded.ToString();
-				loaded3 = true;
-			}
-		}
+		
+		
+		// Can level be loaded
+		canLevel1Load = Application.CanStreamedLevelBeLoaded (level1Name);
+		canLevel2Load = Application.CanStreamedLevelBeLoaded (level2Name);
+		canLevel3Load = Application.CanStreamedLevelBeLoaded (level3Name);
 	}
-
+	
 	void OnGUI(){
-		GUILayout.BeginArea (new Rect (0, 150, 100, 300));
-		//loading bar progress here
-		if (Application.GetStreamProgressForLevel("Level 1") == 1){
-			GUILayout.Label("Level 1 Done!");
-		}
-		else {
-			Level1Percentage = Application.GetStreamProgressForLevel("Level 1") * 100;
-			GUILayout.Label("Level 1: " + Level1Percentage.ToString());
-		}
+		GUILayout.BeginArea(new Rect(0, 25, 300, 500));
+		GUILayout.Label ("Loading levels...");
+		GUILayout.Label (level1Name + " load: " + level1Load + 
+		                 "\nCan " + level1Name + " load? " + canLevel1Load);
 		
-		if (Application.GetStreamProgressForLevel("Level 2") == 1){
-			GUILayout.Label("Level 2 Done!");
-		}
-		else {
-			Level2Percentage = Application.GetStreamProgressForLevel("Level 2") * 100;
-			GUILayout.Label("Level 2: " + Level2Percentage.ToString());
-		}
+		GUILayout.Label (level2Name + " load: " + level2Load + 
+		                 "\nCan " + level2Name + " load? " + canLevel2Load);
 		
-		if (Application.GetStreamProgressForLevel("Level 3") == 1){
-			GUILayout.Label("Level 3 Done!");
-		}
-		else {
-			Level3Percentage = Application.GetStreamProgressForLevel("Level 3") * 100;
-			GUILayout.Label("Level 3: " + Level3Percentage.ToString());
-		}
-		//////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		//Stage 2
-		if (Application.CanStreamedLevelBeLoaded("Level 1"))
-			GUILayout.Label("New Level 1: " + newLevel1Percentage.ToString());
-		if (Application.CanStreamedLevelBeLoaded("Level 2"))
-			GUILayout.Label("New Level 2: " + newLevel2Percentage.ToString());
-		if (Application.CanStreamedLevelBeLoaded("Level 3"))
-			GUILayout.Label("New Level 3: " + newLevel3Percentage.ToString());
-		
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		if(GUILayout.Button("Level 1")){
-			if(Application.CanStreamedLevelBeLoaded("Level 1")){
-				Application.LoadLevel("Level 1");
-			}
-		}
-		if(GUILayout.Button("Level 2")){
-			if(Application.CanStreamedLevelBeLoaded("Level 2")){
-				Application.LoadLevel("Level 2");
-			}
-		}
-		if(GUILayout.Button("Level 3")){
-			if(Application.CanStreamedLevelBeLoaded("Level 3")){
-				Application.LoadLevel("Level 3");
-			}
-		}
-		GUILayout.EndArea ();
+		GUILayout.Label (level3Name + " load: " + level3Load + 
+		                 "\nCan " + level3Name + " load? " + canLevel3Load);
+		GUILayout.EndArea();
 	}
 }
