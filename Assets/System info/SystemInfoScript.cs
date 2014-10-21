@@ -45,14 +45,19 @@ public class SystemInfoScript : MonoBehaviour {
 				showEnvironment = !showEnvironment;
 			}
 		}
-#if !UNITY_ANDROID
+
+#if !UNITY_WEBPLAYER
+		// Also disable if unity android
 		if(GUILayout.Button("Unity")){
 			showUnity = !showUnity;
 		}
-#endif
+
 		if(GUILayout.Button("User")){
 			showUser = !showUser;
-        }
+		}
+#endif
+
+
 
 		GUILayout.BeginArea (infoRect);
 		if(showGeneral == true){
