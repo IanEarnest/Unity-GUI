@@ -58,7 +58,7 @@ public class Welcome : MonoBehaviour {
 			}
 		}
 
-		GUILayout.Label ("GUI Resizing, GUI Window and Loading Levels are in progress");
+		GUILayout.Label ("GUI Resizing and GUI Window are in progress");
 
 		// Hover over buttons
 		i = 0;
